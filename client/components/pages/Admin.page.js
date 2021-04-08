@@ -50,7 +50,7 @@ const AdminPage = (props) => {
   }
 
   const showAllSpots = () => {
-    fetch(`/spot/viewAllSpots`)
+    fetch(`/spot/adminViewAllSpots`)
     .then(response => response.json())
     .then(spots => {
       console.log('Loading spots:' ,spots);
@@ -88,6 +88,7 @@ const AdminPage = (props) => {
     .then(data => {
       console.log(data);
       showAllSpots();
+      setSpots(data);
     })
     .catch(err => console.log('Admin create spot err:', err))
     e.preventDefault();
@@ -100,7 +101,7 @@ const AdminPage = (props) => {
 
   const handleClick = (spot) => {
     // e.preventDefault();
-    console.log('handleClick event: ', spot)
+    // console.log('handleClick event: ', spot)
     history.push({
       pathname:`/spot-detail`,
       state: { spot: spot } //Passes the spot inside location.state.item
@@ -124,7 +125,7 @@ const AdminPage = (props) => {
                 <label>
                   {/* PARKING TYPE INPUT INFO */}
                   Parking Type Name:<br />
-                  <input type="select" name="name"></input>
+                  {/* <input type="select" name="name"></input> */}
                   <input type="text" name="name" onChange={handlePtNameChange}></input>
                 </label>
                 <label>

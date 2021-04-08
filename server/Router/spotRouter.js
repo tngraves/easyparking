@@ -54,6 +54,9 @@ router.post('/adminCreateSpot', spotController.adminCreateNewSpot, (req, res) =>
   res.status(200).json(res.locals.newSpot)
 })
 
+router.get('/adminViewAllSpots', spotController.adminViewAllSpots, (req, res) => {
+  res.status(200).json(res.locals.allSpots)
+})
 
 // Test Area
 router.get('/test', (req, res,) => {
