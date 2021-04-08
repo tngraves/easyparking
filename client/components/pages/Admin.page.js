@@ -50,7 +50,7 @@ const AdminPage = (props) => {
   }
 
   const showAllSpots = () => {
-    fetch(`/spot/viewAllSpots`)
+    fetch(`/spot/adminViewAllSpots`)
     .then(response => response.json())
     .then(spots => {
       console.log('Loading spots:' ,spots);
@@ -88,6 +88,7 @@ const AdminPage = (props) => {
     .then(data => {
       console.log(data);
       showAllSpots();
+      setSpots(data);
     })
     .catch(err => console.log('Admin create spot err:', err))
     e.preventDefault();
@@ -100,7 +101,7 @@ const AdminPage = (props) => {
 
   const handleClick = (spot) => {
     // e.preventDefault();
-    console.log('handleClick event: ', spot)
+    // console.log('handleClick event: ', spot)
     history.push({
       pathname:`/spot-detail`,
       state: { spot: spot } //Passes the spot inside location.state.item
@@ -124,7 +125,7 @@ const AdminPage = (props) => {
                 <label>
                   {/* PARKING TYPE INPUT INFO */}
                   Parking Type Name:<br />
-                  <input type="select" name="name"></input>
+                  {/* <input type="select" name="name"></input> */}
                   <input type="text" name="name" onChange={handlePtNameChange}></input>
                 </label>
                 <label>
@@ -144,13 +145,12 @@ const AdminPage = (props) => {
                   Location Description:<br />
                   <input type="text" name="description" onChange={handlePtLocDescChange}></input>   
                 </label>
-                {/* <input type="submit" className="btn btn-primary" href="#" role="button" onClick={addSpotHandler}>Add Spot</input> */}
-                <input type="submit" value="SUBMIT" /> 
+                <input type="submit" className="btn btn-primary" value="SUBMIT" /> 
               </form>  
-              <a className="btn btn-primary" href="#" role="button" onClick={deleteSpotHandler}>Delete Spot</a>             
+              {/* <a className="btn btn-primary" href="#" role="button" onClick={deleteSpotHandler}>Delete Spot</a>              */}
             </div>
             <div className="col-2">
-              <EasyGoogleMap spots={[]} getSpotInfo={mapCheckIn} getMapLocation={handleGetLog} admin={true}/>
+              <EasyGoogleMap spots={spots} getSpotInfo={mapCheckIn} getMapLocation={handleGetLog} admin={true}/>
             </div>
             <div className="col-4">
             </div>

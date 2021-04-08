@@ -14,6 +14,7 @@ const defaultCenter = {
 
 
 function EasyGoogleMap(props) {
+  //add spot state 
   const [ selected, setSelected ] = useState({});
   //Load state with available parking spots in component did mount or get locations by props
   const locations = [
@@ -81,9 +82,14 @@ function EasyGoogleMap(props) {
         onRightClick={(e)=>dbClick(e)}
       >
         { 
-        locations.map(item => {
+        props.spots.map(item => {
+          const location = {
+            lat: item.lat,
+            lng: item.log
+          };
+          console.log('this is type of lat', typeof item.lat);
           return (
-          <Marker key={item.name} position={item.location} onClick={()=>markerClickHandler(item)}/>
+          <Marker key={item.id} position={location} onClick={()=>markerClickHandler(item)}/>
           )
         })
         }

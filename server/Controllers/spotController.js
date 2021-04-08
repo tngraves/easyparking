@@ -186,6 +186,34 @@ spotController.adminCreateNewSpot = (req, res, next) => {
 
 }
 
+// View all parking spaces
+spotController.adminViewAllSpots = (req, res, next) => {
 
+  // Find all parking spots
+  const queryStr = `SELECT * FROM "public"."ParkingSpace" 
+  LEFT OUTER JOIN "public"."ParkingType" ON "public"."ParkingSpace"."id_parking_type" = "public"."ParkingType"."id"
+  LEFT OUTER JOIN "public"."Locations" ON "public"."ParkingSpace"."id_location" = "public"."Locations"."id";`;
+  db.query(queryStr)
+  .then(data => {
+    res.locals.allSpots = data.rows
+    next();
+  })
+  .catch(err => next({err}))
+}
+
+spotController.adminViewAvailableSpots = (req, res, next) => {
+
+  // Find all parking spots
+  const queryStr = `SELECT * FROM "public"."ParkingSpace" where status = 'open'
+  LEFT OUTER JOIN "public"."ParkingType" ON "public"."ParkingSpace"."id_parking_type" = "public"."ParkingType"."id"
+  LEFT OUTER JOIN "public"."Locations" ON "public"."ParkingSpace"."id_location" = "public"."Locations"."id";`;
+  db.query(queryStr)
+  .then(data => {
+    res.locals.allSpots = data.rows
+    next();
+  })
+  .catch(err => next({err}))
+
+}
 
 module.exports = spotController;
