@@ -44,7 +44,7 @@ const SearchSpotsPage = (props) => {
 
   const searchHandler = () => {
 
-    fetch('/spot/viewAllSpots')
+    fetch(`/spot/adminViewAllSpots`)
       .then(response => response.json())
       .then(spots => {
         setSpots(spots);

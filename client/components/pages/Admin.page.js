@@ -145,13 +145,12 @@ const AdminPage = (props) => {
                   Location Description:<br />
                   <input type="text" name="description" onChange={handlePtLocDescChange}></input>   
                 </label>
-                {/* <input type="submit" className="btn btn-primary" href="#" role="button" onClick={addSpotHandler}>Add Spot</input> */}
-                <input type="submit" value="SUBMIT" /> 
+                <input type="submit" className="btn btn-primary" value="SUBMIT" /> 
               </form>  
-              <a className="btn btn-primary" href="#" role="button" onClick={deleteSpotHandler}>Delete Spot</a>             
+              {/* <a className="btn btn-primary" href="#" role="button" onClick={deleteSpotHandler}>Delete Spot</a>              */}
             </div>
             <div className="col-2">
-              <EasyGoogleMap spots={[]} getSpotInfo={mapCheckIn} getMapLocation={handleGetLog} admin={true}/>
+              <EasyGoogleMap spots={spots} getSpotInfo={mapCheckIn} getMapLocation={handleGetLog} admin={true}/>
             </div>
             <div className="col-4">
             </div>
