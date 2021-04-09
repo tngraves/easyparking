@@ -24,6 +24,7 @@ router.patch('/profile/:email', userController.bcrypt, userController.updateInfo
 })
 
 
+
 /******************************
  * ****GOOGLE ROUTES************************8 */
 //  router.get('/auth/google',
