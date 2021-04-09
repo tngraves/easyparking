@@ -106,4 +106,52 @@ userController.updateInfo = (req, res, next) => {
     })
 }
 
+userController.addOauthUser = (req, res, next) => {
+  console.log('in user controller', req.body)
+  // safety feature: VALUES ($1, $2, $3, $4, $5) 
+  // sanitizes i.e. saves from hackers...
+  // const search = `SELECT 1 FROM "public"."Users" WHERE `
+  // db.query(search, values)
+  //     .then(data => { 
+  //         res.locals.users = data.rows;
+  //         return next();
+  //     })
+  //     .catch( err => next({
+  //         log: 'error',
+  //         status: 500, 
+  //         message: { err }
+  //     }));
+
+
+  // //if oauth user does not exist 
+  // const query = `INSERT INTO "public"."Users" (first_name, last_name, email, password, id_role)
+  // VALUES ($1, $2, $3, 'password', $5) RETURNING *`;
+  // // Deconstruct column names from req.body:
+  // const {
+  //     firstName,
+  //     lastName,
+  //     email,
+  //     idRole
+  // } = req.body;
+  // const values = [
+  //     firstName,
+  //     lastName,
+  //     email,
+  //     res.locals.bcrypt, // this is the resulting hash after passing our password through bcrypt
+  //     idRole
+  // ];
+  // db.query(query, values)
+  //     .then(data => { 
+  //         res.locals.users = data.rows;
+  //         return next();
+  //     })
+  //     .catch( err => next({
+  //         log: 'error',
+  //         status: 500, 
+  //         message: { err }
+  //     }));
+
+      
+}
+
 module.exports = userController;

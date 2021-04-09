@@ -14,6 +14,7 @@ require('./Config/passport-setup');
 // Routes
 const spotRouter = require('./Router/spotRouter');
 const userRouter = require('./Router/userRouter');
+const { profile } = require('./Controllers/userController.js');
 
 //Establish Port and Server (Why is "new" keyword not needed?)
 const PORT = 3000;
@@ -48,10 +49,10 @@ app.use('/user', userRouter);
  passport.authenticate('google', { scope: ['profile','email'] }));
 
  app.get('/auth/google/oauthtg', 
- passport.authenticate('google', { failureRedirect: '/' }),
+ passport.authenticate('google', { successRedirect: '/', failureRedirect: '/signup' }),
  function(req, res) {
    // Successful authentication, redirect home.
-   console.log("'/auth/google/oauthtg!!!!");
+   console.log("'/auth/google/oauthtg!!!!", profile);
    res.redirect('/');
  });
  
