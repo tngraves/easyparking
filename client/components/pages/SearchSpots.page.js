@@ -95,7 +95,7 @@ const SearchSpotsPage = (props) => {
             </div>
           </div>
           <div className="dashboard-main dashboard">
-          <EasyGoogleMap spots={spots} getSpotInfo={mapCheckIn} getMapLocation={getMapLocation} admin={true}/>
+          <EasyGoogleMap spots={spots} getSpotInfo={handleClick} getMapLocation={getMapLocation} admin={true}/>
           <SpotList spots={spots} onClick={handleClick}></SpotList>
             
 

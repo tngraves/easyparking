@@ -63,10 +63,8 @@ const AdminPage = (props) => {
   useEffect(() => {
     if (user[0].id_role !== 2) history.push('/');
     showAllSpots();
-    return function cleanup() {
-      abortController.abort();
-    };
-  }, []);
+
+  }, [spots]);
 
   // Handle click event (Add Spot) => POST request
   const addSpotHandler = (e) => {
@@ -87,7 +85,7 @@ const AdminPage = (props) => {
     .then(res => res.json())
     .then(data => {
       console.log(data);
-      showAllSpots();
+      // showAllSpots();
       setSpots(data);
     })
     .catch(err => console.log('Admin create spot err:', err))

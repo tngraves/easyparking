@@ -66,6 +66,7 @@ function EasyGoogleMap(props) {
   }, [])
 
   const markerClickHandler = (spot) => {
+    console.log('this is spot', spot)
     setSelected(spot);
   }
 
@@ -94,15 +95,18 @@ function EasyGoogleMap(props) {
         })
         }
          {
-            selected.location && 
+            selected.id && 
             (
               <InfoWindow
-              position={selected.location}
+              position={{
+                lat: selected.lat,
+                lng: selected.log
+              }}
               clickable={true}
               onCloseClick={() => setSelected({})}
             >
               <div>
-              <p>{selected.name}</p>
+              <p>{selected.description}</p>
                 <button onClick={()=>props.getSpotInfo(selected)}>Click me!!!</button> 
               </div>
               
