@@ -59,7 +59,7 @@ const LoginPage = () => {
               <div className="card">
                 <div className="card-body">
                   {/* href makes a request to the following path-->change as needed */}
-                  <a className="btn btn-block btn-social btn-google" href="auth/google" role="button">
+                  <a className="btn btn-block btn-social btn-google" href="auth/google" role="button"> 
                     <i className="fab fa-google"></i>
                     {/* Sign In with Google */}
                   </a>
@@ -68,11 +68,11 @@ const LoginPage = () => {
             </div>
 
             <Link to='/signup'>Create Account</Link>
-            <div className="col-sm-4">
+            <div className="col-lg-6">
               <div className="card">
                 {/* Sign Up with Google */}
                 {/* href makes a request to the following path-->change as needed */}
-                <a className="btn btn-block btn-social btn-google" href="auth/google" role="button">
+                <a className="btn btn-block btn-social btn-google" href="auth/google" role="button">Sign in with Google
                   <i className="fab fa-google"></i>
                   {/* Sign Up with Google */}
                 </a>
