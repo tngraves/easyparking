@@ -50,6 +50,7 @@ router.delete('/deleteSpot', spotController.deleteSpot, (req, res) => {
 })
 
 // ADMIN Create New Spot
+//router
 router.post('/adminCreateSpot', spotController.adminCreateNewSpot, (req, res) => {
   res.status(200).json(res.locals.newSpot)
 })
