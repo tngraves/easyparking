@@ -54,19 +54,6 @@ const LoginPage = () => {
 
           </div>
           <div className="checkbox mb-3">
-<<<<<<< HEAD
-            {/* Sign In with Google */}
-            <div className="col-sm-4">
-              <div className="card">
-                <div className="card-body">
-                  {/* href makes a request to the following path-->change as needed */}
-                  <a className="btn btn-block btn-social btn-google" href="auth/google" role="button"> 
-                    <i className="fab fa-google"></i>
-                    {/* Sign In with Google */}
-                  </a>
-                </div>
-              </div>
-=======
 
             {/* href makes a request to the following path-->change as needed */}
             <div className="google-btn">
@@ -77,26 +64,11 @@ const LoginPage = () => {
                 &nbsp; 
                 Sign In with Google 
               </a>
->>>>>>> af5dee4e08d67dbebae256b33ca4b202da89a543
             </div>
 
 
 
             <Link to='/signup'>Create Account</Link>
-<<<<<<< HEAD
-            <div className="col-lg-6">
-              <div className="card">
-                {/* Sign Up with Google */}
-                {/* href makes a request to the following path-->change as needed */}
-                <a className="btn btn-block btn-social btn-google" href="auth/google" role="button">Sign in with Google
-                  <i className="fab fa-google"></i>
-                  {/* Sign Up with Google */}
-                </a>
-            </div>
-          </div>
-=======
-
->>>>>>> af5dee4e08d67dbebae256b33ca4b202da89a543
           </div>
           <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
           <p className="mt-5 mb-3 text-muted">© 2017–2021</p>
